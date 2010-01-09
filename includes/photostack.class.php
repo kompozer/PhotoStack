@@ -1195,6 +1195,30 @@ function image_thumbnail() {
     return $ret;
   }
 
+    /**
+     * Generates an image download <a> link
+     *
+     * @param string $text link text
+     * @return string
+     */
+    function image_download_url($text = 'Download') {
+        return '<a href="' . $this->download_url($this->gallery->id_encoded, ($this->index===null) ? $this->image->filename : $this->gallery->images[$this->index]->filename) . '">' . $text . '</a>';
+    }
+
+    /**
+     * Generates an image download url
+     *
+     * @param string $gallery gallery name
+     * @param string $image image name
+     * @return string http url string
+     */
+    function download_url($gallery, $image) {
+        $ret = $this->config->base_url;
+        $ret .= "download.php";
+        $ret .= "?gallery=".$gallery."&amp;image=".rawurlencode($image);
+        return $ret;
+    }
+
 
 
   /**
