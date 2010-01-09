@@ -4,7 +4,8 @@ echo ' of '.$ps->image_count(); ?>
 
 <p class="nav" >
 <?php echo $ps->image_prev_link("&#8592; Prev",'class="prev" accesskey="p"'); ?> 
-<?php echo $ps->image_parent_link("Up A Level",'class="up" accesskey="u"'); ?> 
+<?php echo $ps->image_parent_link("Up A Level",'class="up" accesskey="u"'); ?> /
+<?php echo $ps->image_download_url('Download'); ?>
 <?php echo $ps->image_next_link('Next &#8594;','class="next" accesskey="n"'); ?> 
 </p>
   
