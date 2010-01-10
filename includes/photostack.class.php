@@ -1206,6 +1206,26 @@ function image_thumbnail() {
     }
 
     /**
+     * 
+     * @param string $text
+     */
+    function album_download_url($text = 'Download') {
+        return '<a href="' . $this->download_album_url($this->gallery->id_encoded) . '">' . $text . '</a>';
+    }
+
+    /**
+     *
+     * @param string $gallery
+     * @return string url
+     */
+    function download_album_url($gallery) {
+        $ret = $this->config->base_url;
+        $ret .= "album_download.php";
+        $ret .= "?gallery=" . rawurlencode($gallery);
+        return $ret;
+    }
+
+    /**
      * Generates an image download url
      *
      * @param string $gallery gallery name
