@@ -8,6 +8,7 @@ if (get_magic_quotes_gpc()) {
 } else {
     $gallery = $_REQUEST['gallery'];
 }
+$gallery = rawurldecode($gallery);
 
 if (null === $gallery) {
     die();
@@ -18,7 +19,7 @@ $galPath = realpath($config->pathto_galleries . $gallery);
 
 if (!file_exists($galPath)) {
     die();
-}
+} 
 
 $tmpZip = tempnam('/tmp', 'tempname') . '.zip';
 
